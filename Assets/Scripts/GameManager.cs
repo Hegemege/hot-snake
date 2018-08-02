@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public SnakeSegmentPool SnakeSegmentPool;
+
     void Awake()
     {
         // Setup singleton
