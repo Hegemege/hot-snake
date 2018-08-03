@@ -36,6 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4163942041327316}
+  - component: {fileID: 114560673909034310}
   m_Layer: 0
   m_Name: SnakeSegment
   m_TagString: SnakeSegment
@@ -170,3 +171,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1087888062974136}
   m_Mesh: {fileID: 4300000, guid: 69b2c4672fff38143b93980ef21660d7, type: 3}
+--- !u!114 &114560673909034310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1113324532785630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c890d66292bf3f4887c134883340861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EatableType: 2
