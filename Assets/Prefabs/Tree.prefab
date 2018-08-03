@@ -66,6 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4578258321739178}
+  - component: {fileID: 114532342036089022}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -170,3 +171,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1378639685315298}
   m_Mesh: {fileID: 4300000, guid: 6f76505ea1def414bbcf253cba59abc5, type: 3}
+--- !u!114 &114532342036089022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617168342738674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aab34821d8db92428d4320e2f1901fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TexturePool:
+  - {fileID: 2800000, guid: e53c378f01133f941aa6eea4cc8e6fa2, type: 3}
+  - {fileID: 2800000, guid: bf6721a01a4c49e4f847afd3ce2bb6d5, type: 3}
+  - {fileID: 2800000, guid: 24322ed6f2479ab45be9176f2f77662f, type: 3}
+  - {fileID: 2800000, guid: f5d908ccc3e46154e90ed031f701bcb4, type: 3}
+  - {fileID: 2800000, guid: 30ca6e256ecb9844d99322bea7084ae9, type: 3}
+  - {fileID: 2800000, guid: 646e8c439b4e30347808421930f5d985, type: 3}
+  - {fileID: 2800000, guid: 52b4152eb2de25e4a924da787b3276d0, type: 3}
+  - {fileID: 2800000, guid: 5a4955636c4dc7246bcd2ec08ee1cadf, type: 3}
+  - {fileID: 2800000, guid: 65ac8eb4e71c7c544ab9a6a1dc557d51, type: 3}
