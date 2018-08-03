@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float Speed;
-    public float SphereRadius;
     public float DistanceFromGround;
     public float TurningSensitivity;
 
@@ -44,7 +43,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void SnapRotation()
     {
-        var groundNormal = GameManager.Instance.GroundPosition(transform.position.normalized * SphereRadius * 2f).normalized;
+        var groundNormal = GameManager.Instance.GroundPosition(transform.position.normalized * GameManager.Instance.SphereRadius * 2f).normalized;
         var newForward = Vector3.ProjectOnPlane(transform.forward, groundNormal);
         transform.localRotation = Quaternion.LookRotation(newForward, groundNormal);
     }
@@ -63,7 +62,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void SnapToGround()
     {
-        var groundPoint = GameManager.Instance.GroundPosition(transform.position.normalized * SphereRadius * 2f); // Elevated current ground position
-        transform.position = groundPoint.normalized * (SphereRadius + DistanceFromGround);
+        var groundPoint = GameManager.Instance.GroundPosition(transform.position.normalized * GameManager.Instance.SphereRadius * 2f); // Elevated current ground position
+        transform.position = groundPoint.normalized * (GameManager.Instance.SphereRadius + DistanceFromGround);
     }
 }

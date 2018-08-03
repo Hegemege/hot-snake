@@ -15,7 +15,12 @@ public class GameManager : MonoBehaviour
     }
 
     public SnakeSegmentPool SnakeSegmentPool;
+    public GenericObjectPool TreePool;
     public LayerMask GroundLayerMask;
+
+    public float SphereRadius;
+
+    public GameObject PlayerRef;
 
     void Awake()
     {

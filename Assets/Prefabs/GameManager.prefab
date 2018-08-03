@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1513409283972224}
   m_IsPrefabAsset: 1
+--- !u!1 &1082359904275770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4237468403077728}
+  m_Layer: 0
+  m_Name: PoolContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1296006740129662
 GameObject:
   m_ObjectHideFlags: 1
@@ -27,6 +42,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1477983070307700
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4572465726858334}
+  - component: {fileID: 114557961446379970}
+  m_Layer: 0
+  m_Name: TreePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1513409283972224
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,6 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4049881524539594}
   - component: {fileID: 114080545152013320}
+  - component: {fileID: 114026664751670026}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -69,6 +101,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4231021575170254}
+  - {fileID: 4237468403077728}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,8 +116,35 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4663968790679080}
+  - {fileID: 4572465726858334}
   m_Father: {fileID: 4049881524539594}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4237468403077728
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1082359904275770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4049881524539594}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4572465726858334
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477983070307700}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4231021575170254}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4663968790679080
 Transform:
@@ -99,6 +159,20 @@ Transform:
   m_Father: {fileID: 4231021575170254}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114026664751670026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1513409283972224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9303165b478d89b4db84144f9924aa6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Trees: []
+  TreeCount: 10
+  TreeSpawnProximityThreshold: 2
 --- !u!114 &114080545152013320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,9 +185,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnakeSegmentPool: {fileID: 114861883790083766}
+  TreePool: {fileID: 114557961446379970}
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  SphereRadius: 3
+  PlayerRef: {fileID: 0}
+--- !u!114 &114557961446379970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1477983070307700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjectPrefab: {fileID: 1617168342738674, guid: 05140660b499bdc4aa8aa52b11d8f52a,
+    type: 2}
+  WillGrow: 1
+  Pool: []
+  Container: {fileID: 1082359904275770}
 --- !u!114 &114861883790083766
 MonoBehaviour:
   m_ObjectHideFlags: 1
