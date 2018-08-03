@@ -102,5 +102,9 @@ public class PlayerController : MonoBehaviour
             transform.localRotation = Quaternion.LookRotation(newForward, transform.up);
             _hitTimer = _hitTimerMax;
         }
+        else if (other.gameObject.CompareTag("Collectible"))
+        {
+            other.gameObject.SetActive(false);
+        }
     }
 }
