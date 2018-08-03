@@ -111,6 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnakeSegmentPool: {fileID: 114861883790083766}
+  GroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &114861883790083766
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void SnapRotation()
     {
-        var groundNormal = GroundPosition(transform.position.normalized * SphereRadius * 2f).normalized;
+        var groundNormal = GameManager.Instance.GroundPosition(transform.position.normalized * SphereRadius * 2f).normalized;
         var newForward = Vector3.ProjectOnPlane(transform.forward, groundNormal);
         transform.localRotation = Quaternion.LookRotation(newForward, groundNormal);
     }
@@ -65,25 +65,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void SnapToGround()
     {
-        var groundPoint = GroundPosition(transform.position.normalized * SphereRadius * 2f); // Elevated current ground position
+        var groundPoint = GameManager.Instance.GroundPosition(transform.position.normalized * SphereRadius * 2f); // Elevated current ground position
         transform.position = groundPoint.normalized * (SphereRadius + DistanceFromGround);
-    }
-
-    /// <summary>
-    /// Returns the point on the ground sphere under the given point
-    /// </summary>
-    private Vector3 GroundPosition(Vector3 from)
-    {
-        Vector3 towardsPlanet = Vector3.zero - from;
-        Ray ray = new Ray(from, towardsPlanet);
-
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 1000f, GroundLayerMask))
-        {
-            return hit.point;
-        }
-
-        Debug.LogWarning("No ground under player. Shouldn't happen.");
-        return Vector3.zero;
     }
 }
