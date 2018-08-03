@@ -463,7 +463,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.27500895, g: 0.38805315, b: 0.5660378, a: 0}
+  m_BackGroundColor: {r: 0.6367924, g: 0.9209179, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -576,8 +576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerController: {fileID: 0}
-  FollowPositionSmoothing: 0.01
-  FollowRotationSmoothing: 0.01
+  FollowPositionSmoothing: 5
+  FollowRotationSmoothing: 4
 --- !u!135 &135006710635350016
 SphereCollider:
   m_ObjectHideFlags: 1
