@@ -30,7 +30,7 @@ public class SnakeSegmentController : MonoBehaviour
 
         // Update the scale of the tail segment based on location in tail
         var totalSegments = SnakeController.SegmentCount;
-        var indexT = (float)Index / totalSegments;
+        var indexT = (float)Index / (totalSegments - 1);
 
         if (indexT > TailStartT)
         {
@@ -43,14 +43,15 @@ public class SnakeSegmentController : MonoBehaviour
         }
         else
         {
-            transform.localScale = Vector3.one;
             return;
         }
 
         // Animate the scale
         if (_targetScale.magnitude < transform.localScale.magnitude)
         {
-            transform.localScale -= Vector3.one * ShrinkingSpeed * dt;
+            var targetScale = transform.localScale.x - ShrinkingSpeed * dt;
+            targetScale = Mathf.Clamp(targetScale, 0f, 1f);
+            transform.localScale = Vector3.one * targetScale;
         }
 
     }

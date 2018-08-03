@@ -55,6 +55,7 @@ public class SnakeController : MonoBehaviour
 
             tail.Value.transform.localPosition = transform.localPosition;
             tail.Value.transform.localRotation = transform.localRotation;
+            tail.Value.transform.localScale = Vector3.one;
             _lastSegmentLocation = transform.position;
         }
 
