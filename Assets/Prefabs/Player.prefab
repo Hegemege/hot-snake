@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4525915581926032}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Eye_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,9 @@ GameObject:
   - component: {fileID: 4402763060119676}
   - component: {fileID: 114864173930375196}
   - component: {fileID: 114084880544720870}
-  m_Layer: 0
+  - component: {fileID: 135006710635350016}
+  - component: {fileID: 54549894161482126}
+  m_Layer: 11
   m_Name: Player
   m_TagString: SnakeHead
   m_Icon: {fileID: 0}
@@ -51,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4672682885216184}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4321177644841696}
   - component: {fileID: 137566417729523486}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,8 +84,23 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4513051089058828}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Jaw
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1246094070152018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4969691183419684}
+  m_Layer: 11
+  m_Name: CameraAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4534887464484688}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cheek_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4675458805347212}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +144,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4719342736704980}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4046725433460760}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4417957823899308}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Eye_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +183,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1798963522911550
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -174,7 +191,8 @@ GameObject:
   - component: {fileID: 4891474027636594}
   - component: {fileID: 20355609458109644}
   - component: {fileID: 81540715978189272}
-  m_Layer: 0
+  - component: {fileID: 114997165200746048}
+  m_Layer: 11
   m_Name: Main Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,7 +208,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4550539884128574}
   - component: {fileID: 95133181425203662}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ProjectSnakehead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +223,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4958995237409900}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cheek_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4145845402344508}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +299,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 2.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4891474027636594}
+  - {fileID: 4969691183419684}
   - {fileID: 4675458805347212}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -402,13 +420,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1798963522911550}
-  m_LocalRotation: {x: 0.65586644, y: -0, z: -0, w: 0.754877}
-  m_LocalPosition: {x: 0, y: 14.75, z: -1.23}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4402763060119676}
+  m_Father: {fileID: 4969691183419684}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 81.971, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4958995237409900
 Transform:
   m_ObjectHideFlags: 1
@@ -422,6 +440,20 @@ Transform:
   m_Father: {fileID: 4145845402344508}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4969691183419684
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1246094070152018}
+  m_LocalRotation: {x: 0.65586644, y: -0, z: -0, w: 0.754877}
+  m_LocalPosition: {x: 0, y: 14.749999, z: -1.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4891474027636594}
+  m_Father: {fileID: 4402763060119676}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 81.971, y: 0, z: 0}
 --- !u!20 &20355609458109644
 Camera:
   m_ObjectHideFlags: 1
@@ -462,6 +494,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!54 &54549894161482126
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053948720059452}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!81 &81540715978189272
 AudioListener:
   m_ObjectHideFlags: 1
@@ -515,6 +562,34 @@ MonoBehaviour:
   Speed: 1
   DistanceFromGround: 0.01
   TurningSensitivity: 90
+  CameraAnchor: {fileID: 1246094070152018}
+  CameraFollowController: {fileID: 114997165200746048}
+--- !u!114 &114997165200746048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798963522911550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83fdde855b423b4c8b111824aee62ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerController: {fileID: 0}
+  FollowPositionSmoothing: 0.01
+  FollowRotationSmoothing: 0.01
+--- !u!135 &135006710635350016
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053948720059452}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!137 &137566417729523486
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

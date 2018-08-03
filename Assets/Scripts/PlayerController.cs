@@ -8,11 +8,29 @@ public class PlayerController : MonoBehaviour
     public float DistanceFromGround;
     public float TurningSensitivity;
 
+    public GameObject CameraAnchor;
+    public CameraFollowController CameraFollowController;
+
+    private float _hitTimer;
+    private float _hitTimerMax = 1f;
+
     void Awake()
     {
+        // Detach camera and give reference
+        CameraFollowController.PlayerController = this;
+        CameraFollowController.transform.parent = null;
+
         // Snap to ground + offset
         SnapToGround();
         SnapRotation();
+    }
+
+    void Update()
+    {
+        if (_hitTimer > 0)
+        {
+            _hitTimer -= Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
@@ -64,5 +82,25 @@ public class PlayerController : MonoBehaviour
     {
         var groundPoint = GameManager.Instance.GroundPosition(transform.position.normalized * GameManager.Instance.SphereRadius * 2f); // Elevated current ground position
         transform.position = groundPoint.normalized * (GameManager.Instance.SphereRadius + DistanceFromGround);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            // Can't hit an obstacle immediately after
+            if (_hitTimer > 0) return;
+
+            // Take damage, flash snake, turn 90 degrees away
+            // Figure out which side the tree is on
+            var towardsTree = (other.transform.position - transform.position).normalized;
+            var sideVector = Vector3.ProjectOnPlane(towardsTree, transform.forward);
+
+            var side = Vector3.Dot(sideVector, transform.right) > 0 ? -1 : 1;
+
+            var newForward = Quaternion.AngleAxis(side * 90f, transform.up) * transform.forward;
+            transform.localRotation = Quaternion.LookRotation(newForward, transform.up);
+            _hitTimer = _hitTimerMax;
+        }
     }
 }

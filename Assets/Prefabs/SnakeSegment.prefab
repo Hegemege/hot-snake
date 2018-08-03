@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4163942041327316}
   - component: {fileID: 114560673909034310}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SnakeSegment
   m_TagString: SnakeSegment
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4544711677847830}
   - component: {fileID: 33514397429187558}
   - component: {fileID: 23697833316375570}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4804876489657068}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Eternal_Flaaaame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4404681534298048}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
