@@ -90,6 +90,54 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1745022103813720
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4201970497353532}
+  - component: {fileID: 114474511458888026}
+  m_Layer: 0
+  m_Name: ChiliPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1857301310764138
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4262661488977926}
+  - component: {fileID: 114308508471438212}
+  m_Layer: 0
+  m_Name: IceCreamPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1965427588487352
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4224898120402082}
+  - component: {fileID: 114687718038654798}
+  m_Layer: 0
+  m_Name: FridgePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4049881524539594
 Transform:
   m_ObjectHideFlags: 1
@@ -105,6 +153,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4201970497353532
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745022103813720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4231021575170254}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4224898120402082
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965427588487352}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4231021575170254}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4231021575170254
 Transform:
   m_ObjectHideFlags: 1
@@ -117,6 +191,9 @@ Transform:
   m_Children:
   - {fileID: 4663968790679080}
   - {fileID: 4572465726858334}
+  - {fileID: 4201970497353532}
+  - {fileID: 4262661488977926}
+  - {fileID: 4224898120402082}
   m_Father: {fileID: 4049881524539594}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -132,6 +209,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4049881524539594}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4262661488977926
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1857301310764138}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4231021575170254}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4572465726858334
 Transform:
@@ -173,6 +263,7 @@ MonoBehaviour:
   Trees: []
   TreeCount: 10
   TreeSpawnProximityThreshold: 2
+  InitialPickupCount: 10
 --- !u!114 &114080545152013320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,8 +280,44 @@ MonoBehaviour:
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  CollectiblePools:
+  - {fileID: 114474511458888026}
+  - {fileID: 114308508471438212}
+  - {fileID: 114687718038654798}
   SphereRadius: 3
   PlayerRef: {fileID: 0}
+--- !u!114 &114308508471438212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1857301310764138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjectPrefab: {fileID: 1726995426568390, guid: 8c5d217903da71a47a5af10431071e68,
+    type: 2}
+  WillGrow: 1
+  Pool: []
+  Container: {fileID: 1082359904275770}
+--- !u!114 &114474511458888026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745022103813720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjectPrefab: {fileID: 1957264699419998, guid: 161c81bc387a29647a117d0e21074b3e,
+    type: 2}
+  WillGrow: 1
+  Pool: []
+  Container: {fileID: 1082359904275770}
 --- !u!114 &114557961446379970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,6 +330,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PooledObjectPrefab: {fileID: 1617168342738674, guid: 05140660b499bdc4aa8aa52b11d8f52a,
+    type: 2}
+  WillGrow: 1
+  Pool: []
+  Container: {fileID: 1082359904275770}
+--- !u!114 &114687718038654798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1965427588487352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjectPrefab: {fileID: 1928525434749588, guid: a6e4933922a9f82418c2e82c33c5eccc,
     type: 2}
   WillGrow: 1
   Pool: []

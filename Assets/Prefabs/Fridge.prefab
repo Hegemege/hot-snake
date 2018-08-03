@@ -30,7 +30,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1685514730147250
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -38,6 +38,22 @@ GameObject:
   - component: {fileID: 4912228729207110}
   m_Layer: 0
   m_Name: Model
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1739618247452822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4048973017117262}
+  - component: {fileID: 114387429316979538}
+  m_Layer: 0
+  m_Name: Rotator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +67,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4961973085766128}
-  - component: {fileID: 114609810102724650}
   - component: {fileID: 114827452410406942}
   m_Layer: 0
   m_Name: Fridge
@@ -60,6 +75,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4048973017117262
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1739618247452822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4912228729207110}
+  m_Father: {fileID: 4961973085766128}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4525206094015440
 Transform:
   m_ObjectHideFlags: 1
@@ -81,10 +110,10 @@ Transform:
   m_GameObject: {fileID: 1685514730147250}
   m_LocalRotation: {x: -0.3474364, y: -0.3394292, z: -0.19451095, w: 0.8521979}
   m_LocalPosition: {x: -0.377, y: 0, z: 0.213}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.2, y: 0.19999997, z: 0.19999996}
   m_Children:
   - {fileID: 4525206094015440}
-  m_Father: {fileID: 4961973085766128}
+  m_Father: {fileID: 4048973017117262}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -46.404003, y: -40.012, z: -7.9740005}
 --- !u!4 &4961973085766128
@@ -97,7 +126,7 @@ Transform:
   m_LocalPosition: {x: 0.05, y: 3.11, z: -0.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4912228729207110}
+  - {fileID: 4048973017117262}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -143,12 +172,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1364747404011568}
   m_Mesh: {fileID: 4300000, guid: 6ef13556cc81e3e4689dabbccf102bd1, type: 3}
---- !u!114 &114609810102724650
+--- !u!114 &114387429316979538
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928525434749588}
+  m_GameObject: {fileID: 1739618247452822}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fae3fc2d8456d964eb18cb600393d9f2, type: 3}
@@ -167,4 +196,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ca72928f652a546b574cc68083429e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EatableType: 0
+  EatableType: 1

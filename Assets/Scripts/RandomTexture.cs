@@ -12,7 +12,7 @@ public class RandomTexture : MonoBehaviour
     {
         mr = GetComponentInChildren<MeshRenderer>();
 
-        var randomTexture = TexturePool[Random.Range(0, TexturePool.Count - 1)];
+        var randomTexture = TexturePool[Random.Range(0, TexturePool.Count)];
         mr.material.SetTexture("_MainTex", randomTexture);
     }
 }

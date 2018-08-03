@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public SnakeSegmentPool SnakeSegmentPool;
     public GenericObjectPool TreePool;
     public LayerMask GroundLayerMask;
+    public List<GenericObjectPool> CollectiblePools;
 
     public float SphereRadius;
 

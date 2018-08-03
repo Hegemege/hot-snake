@@ -11,6 +11,22 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1726995426568390}
   m_IsPrefabAsset: 1
+--- !u!1 &1554104103740550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4080081716556102}
+  - component: {fileID: 114951840511991834}
+  m_Layer: 0
+  m_Name: Rotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1704168266381188
 GameObject:
   m_ObjectHideFlags: 1
@@ -36,7 +52,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4535517283055650}
-  - component: {fileID: 114698323127860486}
   - component: {fileID: 114297317603162360}
   m_Layer: 0
   m_Name: IceCream
@@ -47,7 +62,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1833220015041894
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -73,6 +88,20 @@ Transform:
   m_Father: {fileID: 4283942256568702}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4080081716556102
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554104103740550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4283942256568702}
+  m_Father: {fileID: 4535517283055650}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4283942256568702
 Transform:
   m_ObjectHideFlags: 1
@@ -81,10 +110,10 @@ Transform:
   m_GameObject: {fileID: 1833220015041894}
   m_LocalRotation: {x: -0.11211261, y: -0.27663693, z: -0.27661982, w: 0.91344637}
   m_LocalPosition: {x: -0.422, y: 0, z: 0.029}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.4, y: 0.40000007, z: 0.40000004}
   m_Children:
   - {fileID: 4024478007844692}
-  m_Father: {fileID: 4535517283055650}
+  m_Father: {fileID: 4080081716556102}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -20.969002, y: -28.347002, z: -28.344002}
 --- !u!4 &4535517283055650
@@ -97,7 +126,7 @@ Transform:
   m_LocalPosition: {x: 0.05, y: 3.11, z: -0.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4283942256568702}
+  - {fileID: 4080081716556102}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -154,13 +183,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ca72928f652a546b574cc68083429e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EatableType: 0
---- !u!114 &114698323127860486
+  EatableType: 1
+--- !u!114 &114951840511991834
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1726995426568390}
+  m_GameObject: {fileID: 1554104103740550}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fae3fc2d8456d964eb18cb600393d9f2, type: 3}
