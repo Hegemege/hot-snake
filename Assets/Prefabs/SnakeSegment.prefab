@@ -183,3 +183,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EatableType: 2
+  Index: 0
+  SnakeController: {fileID: 0}
+  TailStartT: 0.3
+  TailSizeFalloffCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.420155
+      outSlope: -0.420155
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.14348426
+    - serializedVersion: 3
+      time: 1
+      value: -0.07235718
+      inSlope: -1.8856379
+      outSlope: -1.8856379
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.075131536
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ShrinkingSpeed: 2

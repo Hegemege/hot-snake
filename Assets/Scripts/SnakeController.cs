@@ -7,15 +7,24 @@ public class SnakeController : MonoBehaviour
     public int InitialSegmentCount;
     public float DistanceBetweenSegments;
 
-    private int _segmentCount;
     private LinkedList<SnakeSegmentController> _segments;
     private GameObject _segmentContainer;
 
     private Vector3 _lastSegmentLocation;
 
+    [HideInInspector]
+    public float NextSegmentT;
+
+    public int SegmentCount
+    {
+        get
+        {
+            return _segments.Count;
+        }
+    }
+
     void Awake()
     {
-        _segmentCount = InitialSegmentCount;
         _segments = new LinkedList<SnakeSegmentController>();
 
         _segmentContainer = new GameObject("Segment Container");
@@ -37,6 +46,8 @@ public class SnakeController : MonoBehaviour
         var tail = _segments.Last;
         var distanceToNext = Vector3.Distance(transform.position, _lastSegmentLocation);
 
+        NextSegmentT = Mathf.Clamp(distanceToNext / DistanceBetweenSegments, 0f, 1f);
+
         if (distanceToNext > DistanceBetweenSegments)
         {
             _segments.RemoveLast();
@@ -45,6 +56,18 @@ public class SnakeController : MonoBehaviour
             tail.Value.transform.localPosition = transform.localPosition;
             tail.Value.transform.localRotation = transform.localRotation;
             _lastSegmentLocation = transform.position;
+        }
+
+        LinkedListNode<SnakeSegmentController> current = null;
+        for (var i = 0; i < _segments.Count; i++)
+        {
+            if (current == null)
+            {
+                current = _segments.First;
+            }
+
+            current.Value.Index = i;
+            current = current.Next;
         }
     }
 
@@ -69,6 +92,7 @@ public class SnakeController : MonoBehaviour
 
         var segmentController = newSegment.GetComponent<SnakeSegmentController>();
         segmentController.EatableType = type;
+        segmentController.SnakeController = this;
 
         _segments.AddLast(segmentController);
     }

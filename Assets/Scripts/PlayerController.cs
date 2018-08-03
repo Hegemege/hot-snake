@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
     public float DistanceFromGround;
     public float TurningSensitivity;
 
-    public LayerMask GroundLayerMask;
-
     void Awake()
     {
         // Snap to ground + offset
