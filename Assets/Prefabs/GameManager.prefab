@@ -42,6 +42,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1427218327279540
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4854470722308586}
+  - component: {fileID: 114277672392038276}
+  m_Layer: 0
+  m_Name: FridgePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1477983070307700
 GameObject:
   m_ObjectHideFlags: 1
@@ -132,7 +148,7 @@ GameObject:
   - component: {fileID: 4224898120402082}
   - component: {fileID: 114687718038654798}
   m_Layer: 0
-  m_Name: FridgePool
+  m_Name: IceCubePool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -177,7 +193,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4231021575170254}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4231021575170254
 Transform:
@@ -193,6 +209,7 @@ Transform:
   - {fileID: 4572465726858334}
   - {fileID: 4201970497353532}
   - {fileID: 4262661488977926}
+  - {fileID: 4854470722308586}
   - {fileID: 4224898120402082}
   m_Father: {fileID: 4049881524539594}
   m_RootOrder: 0
@@ -249,6 +266,19 @@ Transform:
   m_Father: {fileID: 4231021575170254}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4854470722308586
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427218327279540}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4231021575170254}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114026664751670026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,9 +313,26 @@ MonoBehaviour:
   CollectiblePools:
   - {fileID: 114474511458888026}
   - {fileID: 114308508471438212}
+  - {fileID: 114277672392038276}
   - {fileID: 114687718038654798}
   SphereRadius: 3
   PlayerRef: {fileID: 0}
+--- !u!114 &114277672392038276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1427218327279540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjectPrefab: {fileID: 1928525434749588, guid: a6e4933922a9f82418c2e82c33c5eccc,
+    type: 2}
+  WillGrow: 1
+  Pool: []
+  Container: {fileID: 1082359904275770}
 --- !u!114 &114308508471438212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -345,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PooledObjectPrefab: {fileID: 1928525434749588, guid: a6e4933922a9f82418c2e82c33c5eccc,
+  PooledObjectPrefab: {fileID: 1214146018019260, guid: af60bca4d015e994cbe48082df3a5eb2,
     type: 2}
   WillGrow: 1
   Pool: []
