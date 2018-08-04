@@ -138,18 +138,18 @@ public class SnakeController : MonoBehaviour
             tail.Value.transform.localRotation = transform.localRotation;
             tail.Value.ModelRoot.transform.localScale = Vector3.one;
             _lastSegmentLocation = transform.position;
-        }
 
-        LinkedListNode<SnakeSegmentController> current = null;
-        for (var i = 0; i < _segments.Count; i++)
-        {
-            if (current == null)
+            LinkedListNode<SnakeSegmentController> current = null;
+            for (var i = 0; i < _segments.Count; i++)
             {
-                current = _segments.First;
-            }
+                if (current == null)
+                {
+                    current = _segments.First;
+                }
 
-            current.Value.Index = i;
-            current = current.Next;
+                current.Value.Index = i;
+                current = current.Next;
+            }
         }
     }
 

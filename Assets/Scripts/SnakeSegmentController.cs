@@ -37,6 +37,8 @@ public class SnakeSegmentController : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.Alive) return;
+
         var dt = Time.deltaTime;
 
         if (_spawnTimer > 0)

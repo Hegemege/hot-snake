@@ -136,6 +136,7 @@ public class GameManager : MonoBehaviour
         SnakeController.GetComponent<SnakeDeathController>().Death();
         yield return new WaitForSeconds(DeathAnimationInterval);
         var tail = SnakeController.FirstSegment;
+        var i = 0;
         while (tail != null)
         {
             var deathController = tail.Value.GetComponent<SnakeDeathController>();

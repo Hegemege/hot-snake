@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087c9d1ce4ae60d41b9683fa47b0a92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialSegmentCount: 30
+  InitialSegmentCount: 10
   MaxSegmentCount: 200
   DistanceBetweenSegments: 0.2
   NextSegmentT: 0
@@ -669,6 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModelRoot: {fileID: 1361680089174262}
   CameraAnchor: {fileID: 1246094070152018}
+  ScaleOnDeath: 0
 --- !u!114 &114864173930375196
 MonoBehaviour:
   m_ObjectHideFlags: 1
