@@ -9,9 +9,11 @@ public class Rotator : MonoBehaviour
 
     private float t;
 
+    private float _initialRotationSpeed;
+
     void Awake()
     {
-
+        _initialRotationSpeed = RotationSpeed;
     }
 
     void FixedUpdate()

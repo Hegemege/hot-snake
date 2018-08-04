@@ -5,9 +5,6 @@ using UnityEngine;
 public class SnakeSegmentController : MonoBehaviour
 {
     [HideInInspector]
-    public EatableType EatableType;
-
-    [HideInInspector]
     public int Index;
 
     [HideInInspector]

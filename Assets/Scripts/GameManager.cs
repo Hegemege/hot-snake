@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public GenericObjectPool TreePool;
     public LayerMask GroundLayerMask;
     public List<GenericObjectPool> CollectiblePools;
+    [HideInInspector]
+    public LevelGenerator LevelGenerator;
 
     public float SphereRadius;
 
@@ -38,6 +40,7 @@ public class GameManager : MonoBehaviour
         // Initialize stuff
 
         // Get self-references
+        LevelGenerator = GetComponent<LevelGenerator>();
     }
 
     void Update()

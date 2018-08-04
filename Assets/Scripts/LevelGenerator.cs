@@ -116,5 +116,7 @@ public class LevelGenerator : MonoBehaviour
         var normal = point.normalized;
         var cross = Vector3.Cross(normal, Random.onUnitSphere);
         randomCollectible.transform.localRotation = Quaternion.LookRotation(cross, normal);
+
+        randomCollectible.SetActive(true);
     }
 }

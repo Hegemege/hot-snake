@@ -31,7 +31,7 @@ public class SnakeController : MonoBehaviour
 
         for (var i = 0; i < InitialSegmentCount; i++)
         {
-            AddNewTail();
+            AddNewTailSegment();
         }
     }
 
@@ -72,11 +72,7 @@ public class SnakeController : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Adds one new tail with the given EatableType. Neutral if not specified
-    /// </summary>
-    /// <param name="eatableScript"></param>
-    public void AddNewTail(EatableType type = EatableType.Neutral)
+    public void AddNewTailSegment()
     {
         var targetTransform = transform;
         if (_segments.Count > 0)
@@ -92,9 +88,19 @@ public class SnakeController : MonoBehaviour
         newSegment.transform.localScale = Vector3.one;
 
         var segmentController = newSegment.GetComponent<SnakeSegmentController>();
-        segmentController.EatableType = type;
         segmentController.SnakeController = this;
 
         _segments.AddLast(segmentController);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Collectible"))
+        {
+            AddNewTailSegment();
+
+            var otherEatable = other.GetComponent<Eatable>();
+            otherEatable.Eat();
+        }
     }
 }
