@@ -11,6 +11,9 @@ public class UIController : MonoBehaviour
     public Image HotHotImage;
     public Image NotHotImage;
 
+    public Text ScoreText;
+    public Text MultiplierText;
+
     public float ShakingMin;
     public float ShakingMax;
     public float ShakingThreshold;
@@ -32,6 +35,9 @@ public class UIController : MonoBehaviour
     public Color FlashColdColor;
     private Color _initialTextColor;
 
+    private int _previousSetScore;
+    private float _previousSetMultiplier;
+
     void Awake()
     {
         _hotnessTextCache = new Dictionary<int, string>();
@@ -50,11 +56,15 @@ public class UIController : MonoBehaviour
         _initialMarkerPosition = HotnessMarker.rectTransform.localPosition;
         _initialHotHotPosition = HotHotImage.rectTransform.localPosition;
         _initialNotHotPosition = NotHotImage.rectTransform.localPosition;
+
+        SetScore(true);
     }
 
     void Update()
     {
         var dt = Time.deltaTime;
+
+        SetScore();
 
         _currentHotnessLevel = Mathf.Lerp(_currentHotnessLevel, GameManager.Instance.HotnessLevel, HotnessNumberSmoothing * Time.deltaTime);
         var hotnessLevel = Mathf.RoundToInt(_currentHotnessLevel * 100f);
@@ -98,5 +108,18 @@ public class UIController : MonoBehaviour
             _flashHighlight = false;
             HotnessText.color = _initialTextColor;
         }
+    }
+
+    private void SetScore(bool always = false)
+    {
+        if (always || _previousSetScore != GameManager.Instance.Score)
+        {
+            ScoreText.text = GameManager.Instance.Score.ToString();
+        }
+        if (always || Mathf.Abs(_previousSetMultiplier - GameManager.Instance.ScoreMultiplier) > 0.001f)
+        {
+            MultiplierText.text = "X " + GameManager.Instance.ScoreMultiplier.ToString("n1");
+        }
+
     }
 }

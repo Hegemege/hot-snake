@@ -43,8 +43,9 @@ public class GameManager : MonoBehaviour
 
     public float HotnessLevel; //-1f to 1f
     public int Score;
-
-    public Gradient SnakeSegmentColorGradient;
+    public float ScoreMultiplier;
+    public float ScoreMultiplierMax;
+    public float ScoreMultiplierMin;
 
     public float SnakeLengthEffect;
     public bool Alive;
@@ -97,6 +98,9 @@ public class GameManager : MonoBehaviour
             {
                 Death();
             }
+
+            var hotnessT = (HotnessLevel + 1f) * 0.5f;
+            ScoreMultiplier = Mathf.Clamp((Mathf.Round(10f * Mathf.Lerp(ScoreMultiplierMin, ScoreMultiplierMax, hotnessT)) / 10f), 0f, ScoreMultiplierMax);
         }
     }
 
@@ -167,7 +171,7 @@ public class GameManager : MonoBehaviour
         }
 
         HotnessLevel += direction * changePercentage / 100f;
-        Score += eatable.ScoreAmount;
+        Score += Mathf.RoundToInt(eatable.ScoreAmount * ScoreMultiplier);
     }
 
     /// <summary>
