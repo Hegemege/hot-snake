@@ -26,6 +26,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1159510970626322
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4837335583315854}
+  - component: {fileID: 114795426402970960}
+  m_Layer: 0
+  m_Name: TreePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1296006740129662
 GameObject:
   m_ObjectHideFlags: 1
@@ -58,6 +74,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1430643228283760
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4070276114948264}
+  - component: {fileID: 114483415017884500}
+  m_Layer: 0
+  m_Name: StonePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1477983070307700
 GameObject:
   m_ObjectHideFlags: 1
@@ -68,7 +100,7 @@ GameObject:
   - component: {fileID: 4572465726858334}
   - component: {fileID: 114557961446379970}
   m_Layer: 0
-  m_Name: TreePool
+  m_Name: MushroomPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -185,6 +217,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4070276114948264
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1430643228283760}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4231021575170254}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4146077163967094
 Transform:
   m_ObjectHideFlags: 1
@@ -209,7 +254,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4231021575170254}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4224898120402082
 Transform:
@@ -222,7 +267,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4231021575170254}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4231021575170254
 Transform:
@@ -236,6 +281,8 @@ Transform:
   m_Children:
   - {fileID: 4663968790679080}
   - {fileID: 4146077163967094}
+  - {fileID: 4837335583315854}
+  - {fileID: 4070276114948264}
   - {fileID: 4572465726858334}
   - {fileID: 4201970497353532}
   - {fileID: 4262661488977926}
@@ -268,7 +315,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4231021575170254}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4572465726858334
 Transform:
@@ -276,12 +323,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477983070307700}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4231021575170254}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4663968790679080
 Transform:
@@ -296,6 +343,19 @@ Transform:
   m_Father: {fileID: 4231021575170254}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4837335583315854
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159510970626322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4231021575170254}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4854470722308586
 Transform:
   m_ObjectHideFlags: 1
@@ -307,7 +367,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4231021575170254}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114026664751670026
 MonoBehaviour:
@@ -323,7 +383,10 @@ MonoBehaviour:
   Obstacles: []
   TreeCount: 7
   RockCount: 8
+  StoneCount: 15
+  MushroomCount: 15
   ObstacleProximityThreshold: 1.5
+  PlayerProximityThreshold: 2
   InitialPickupCount: 10
 --- !u!114 &114080545152013320
 MonoBehaviour:
@@ -337,8 +400,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SnakeSegmentPool: {fileID: 114861883790083766}
-  TreePool: {fileID: 114557961446379970}
+  TreePool: {fileID: 114795426402970960}
   RockPool: {fileID: 114466063230386738}
+  StonePool: {fileID: 114483415017884500}
+  MushroomPool: {fileID: 114557961446379970}
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -397,7 +462,7 @@ MonoBehaviour:
     type: 2}
   WillGrow: 1
   Pool: []
-  Container: {fileID: 0}
+  Container: {fileID: 1082359904275770}
 --- !u!114 &114474511458888026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -414,6 +479,22 @@ MonoBehaviour:
   WillGrow: 1
   Pool: []
   Container: {fileID: 1082359904275770}
+--- !u!114 &114483415017884500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1430643228283760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjectPrefab: {fileID: 1973135575623844, guid: 3c08ff5ed66e69846805f1e3d66b03a7,
+    type: 2}
+  WillGrow: 1
+  Pool: []
+  Container: {fileID: 1082359904275770}
 --- !u!114 &114557961446379970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -425,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PooledObjectPrefab: {fileID: 1617168342738674, guid: 05140660b499bdc4aa8aa52b11d8f52a,
+  PooledObjectPrefab: {fileID: 1455647854901186, guid: 84fc25d787e7707449c794abe242eb3e,
     type: 2}
   WillGrow: 1
   Pool: []
@@ -442,6 +523,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PooledObjectPrefab: {fileID: 1214146018019260, guid: af60bca4d015e994cbe48082df3a5eb2,
+    type: 2}
+  WillGrow: 1
+  Pool: []
+  Container: {fileID: 1082359904275770}
+--- !u!114 &114795426402970960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1159510970626322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjectPrefab: {fileID: 1617168342738674, guid: 05140660b499bdc4aa8aa52b11d8f52a,
     type: 2}
   WillGrow: 1
   Pool: []

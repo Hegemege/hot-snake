@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public SnakeSegmentPool SnakeSegmentPool;
     public GenericObjectPool TreePool;
     public GenericObjectPool RockPool;
+    public GenericObjectPool StonePool;
+    public GenericObjectPool MushroomPool;
     public LayerMask GroundLayerMask;
     public List<GenericObjectPool> CollectiblePools;
     [HideInInspector]
