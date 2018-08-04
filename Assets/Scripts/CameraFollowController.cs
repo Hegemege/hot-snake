@@ -10,15 +10,19 @@ public class CameraFollowController : MonoBehaviour
     public float FollowPositionSmoothing;
     public float FollowRotationSmoothing;
 
+    public GameObject Target;
+
     void Awake()
     {
-
+        Target = PlayerController.CameraAnchor;
     }
 
     void FixedUpdate()
     {
+        if (!Target || !Target.activeInHierarchy) return;
+
         var dt = Time.fixedDeltaTime;
-        var targetTransform = PlayerController.CameraAnchor.transform;
+        var targetTransform = Target.transform;
 
         // Follow camera anchor smoothly
         transform.position = Vector3.Slerp(transform.position, targetTransform.position, FollowPositionSmoothing * dt);

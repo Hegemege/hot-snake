@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,8 +28,10 @@ public class GameManager : MonoBehaviour
 
     public float SphereRadius;
 
+    [HideInInspector]
     public GameObject PlayerRef;
-    private SnakeController _snakeController;
+    [HideInInspector]
+    public SnakeController SnakeController;
 
     public float HotnessRateMin;
     public float HotnessRateMax;
@@ -41,6 +44,9 @@ public class GameManager : MonoBehaviour
     public Gradient SnakeSegmentColorGradient;
 
     public float SnakeLengthEffect;
+    public bool Alive;
+
+    public float DeathAnimationInterval;
 
     void Awake()
     {
@@ -63,15 +69,16 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartLevel();
+        GetPlayerRef();
     }
 
     void Update()
     {
         var dt = Time.deltaTime;
 
-        if (_snakeController)
+        if (SnakeController && Alive)
         {
-            var optimumLengthDiff = _snakeController.SegmentCount - SnakeLengthOptimum;
+            var optimumLengthDiff = SnakeController.SegmentCount - SnakeLengthOptimum;
             var lengthChangeSign = Mathf.Sign(optimumLengthDiff);
 
             var nonOptimalRatio = Mathf.Abs(optimumLengthDiff) / (float)SnakeLengthNonOptimalDiff;
@@ -82,13 +89,59 @@ public class GameManager : MonoBehaviour
 
             var heatlevelRate = Mathf.Lerp(HotnessRateMin, HotnessRateMax, (HotnessLevel + 1f) * 0.5f) * hotnessLevelSign;
             HotnessLevel += heatlevelRate * dt;
+
+            if (Mathf.Abs(HotnessLevel) >= 1f)
+            {
+                Death();
+            }
         }
     }
 
     public void StartLevel()
     {
+        Alive = true;
         HotnessLevel = 0f;
-        _snakeController = PlayerRef != null ? PlayerRef.GetComponent<SnakeController>() : null;
+    }
+
+    private void GetPlayerRef()
+    {
+        SnakeController = PlayerRef != null ? PlayerRef.GetComponent<SnakeController>() : null;
+    }
+
+    public void EndLevel()
+    {
+        StartLevel();
+        SceneManager.LoadScene("main");
+        GetPlayerRef();
+    }
+
+    private void Death()
+    {
+        Alive = false;
+
+        StartCoroutine(PopSnakeSegments());
+    }
+
+    private IEnumerator PopSnakeSegments()
+    {
+        var cameraController = SnakeController.GetComponent<PlayerController>().CameraFollowController;
+
+        SnakeController.GetComponent<SnakeDeathController>().Death();
+        yield return new WaitForSeconds(DeathAnimationInterval);
+        var tail = SnakeController.FirstSegment;
+        while (tail != null)
+        {
+            var deathController = tail.Value.GetComponent<SnakeDeathController>();
+            cameraController.Target = deathController.CameraAnchor;
+            deathController.Death();
+            yield return new WaitForSeconds(DeathAnimationInterval);
+            tail = tail.Next;
+        }
+
+        cameraController.Target = null;
+
+        yield return new WaitForSeconds(3f);
+        EndLevel();
     }
 
     public void ObjectEaten(Eatable eatable)

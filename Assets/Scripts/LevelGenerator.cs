@@ -18,7 +18,7 @@ public class LevelGenerator : MonoBehaviour
 
     public int InitialPickupCount;
 
-    void Awake()
+    void Start()
     {
         for (var i = 0; i < TreeCount; i++)
         {

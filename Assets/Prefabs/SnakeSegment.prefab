@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4163942041327316}
   - component: {fileID: 114560673909034310}
+  - component: {fileID: 114409089707536780}
   m_Layer: 12
   m_Name: SnakeSegment
   m_TagString: SnakeSegment
@@ -39,6 +40,21 @@ GameObject:
   - component: {fileID: 23697833316375570}
   m_Layer: 12
   m_Name: default
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1317064725910172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4208737768976070}
+  m_Layer: 12
+  m_Name: CameraAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,9 +101,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4404681534298048}
+  - {fileID: 4208737768976070}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4208737768976070
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317064725910172}
+  m_LocalRotation: {x: 0.6032422, y: -0, z: -0, w: 0.7975581}
+  m_LocalPosition: {x: 0, y: 10.15, z: -2.24}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4163942041327316}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 74.205, y: 0, z: 0}
 --- !u!4 &4404681534298048
 Transform:
   m_ObjectHideFlags: 1
@@ -96,7 +126,7 @@ Transform:
   m_GameObject: {fileID: 1616421992782004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.3, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4804876489657068}
   m_Father: {fileID: 4163942041327316}
@@ -123,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 1528622568760748}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.3, z: 0.4}
   m_Children:
   - {fileID: 4544711677847830}
   m_Father: {fileID: 4404681534298048}
@@ -171,6 +201,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215807382448008}
   m_Mesh: {fileID: 4300000, guid: 67b5c56a962fbab47af73f4df2cd5b21, type: 3}
+--- !u!114 &114409089707536780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1113324532785630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4a5e349114176d428669a34f08bdf9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ModelRoot: {fileID: 1616421992782004}
+  CameraAnchor: {fileID: 1317064725910172}
 --- !u!114 &114560673909034310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,9 +225,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c890d66292bf3f4887c134883340861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EatableType: 2
   Index: 0
   SnakeController: {fileID: 0}
+  ModelRoot: {fileID: 1616421992782004}
   TailStartT: 0.3
   TailSizeFalloffCurve:
     serializedVersion: 2

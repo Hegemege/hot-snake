@@ -10,6 +10,8 @@ public class SnakeSegmentController : MonoBehaviour
     [HideInInspector]
     public SnakeController SnakeController;
 
+    public GameObject ModelRoot;
+
     public float TailStartT;
     public AnimationCurve TailSizeFalloffCurve;
 
@@ -18,7 +20,7 @@ public class SnakeSegmentController : MonoBehaviour
 
     void Awake()
     {
-
+        ModelRoot.transform.localScale = Vector3.zero;
     }
 
     void Update()
@@ -44,11 +46,11 @@ public class SnakeSegmentController : MonoBehaviour
         }
 
         // Animate the scale
-        if (_targetScale.magnitude < transform.localScale.magnitude)
+        if (_targetScale.magnitude < ModelRoot.transform.localScale.magnitude)
         {
-            var targetScale = transform.localScale.x - ShrinkingSpeed * dt;
+            var targetScale = ModelRoot.transform.localScale.x - ShrinkingSpeed * dt;
             targetScale = Mathf.Clamp(targetScale, 0f, 1f);
-            transform.localScale = Vector3.one * targetScale;
+            ModelRoot.transform.localScale = Vector3.one * targetScale;
         }
 
     }

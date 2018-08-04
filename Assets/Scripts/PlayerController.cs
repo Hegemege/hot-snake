@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
         _initialSpeed = Speed;
         _initialTurningRate = TurningSensitivity;
+
+        GameManager.Instance.PlayerRef = gameObject;
     }
 
     void Update()
@@ -54,6 +56,8 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        if (!GameManager.Instance.Alive) return;
+
         var dt = Time.fixedDeltaTime;
         // Move along velocity vector, snap to ground at new location
         var newLocation = transform.position + transform.forward * Speed * dt;

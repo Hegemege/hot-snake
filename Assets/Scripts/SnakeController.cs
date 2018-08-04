@@ -32,6 +32,14 @@ public class SnakeController : MonoBehaviour
         }
     }
 
+    public LinkedListNode<SnakeSegmentController> FirstSegment
+    {
+        get
+        {
+            return _segments.First;
+        }
+    }
+
     void Awake()
     {
         _segments = new LinkedList<SnakeSegmentController>();
@@ -44,6 +52,8 @@ public class SnakeController : MonoBehaviour
 
         _animator = GetComponentInChildren<Animator>();
         ResetBlinkTimer();
+
+        GameManager.Instance.SnakeController = this;
     }
 
     void Start()
@@ -53,6 +63,12 @@ public class SnakeController : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.Instance.Alive)
+        {
+            _animator.speed = 0f;
+            return;
+        }
+
         var dt = Time.deltaTime;
 
         _blinkTimer += dt;
@@ -84,7 +100,7 @@ public class SnakeController : MonoBehaviour
 
             tail.Value.transform.localPosition = transform.localPosition;
             tail.Value.transform.localRotation = transform.localRotation;
-            tail.Value.transform.localScale = Vector3.one;
+            tail.Value.ModelRoot.transform.localScale = Vector3.one;
             _lastSegmentLocation = transform.position;
         }
 
@@ -116,7 +132,6 @@ public class SnakeController : MonoBehaviour
         newSegment.transform.parent = _segmentContainer.transform;
         newSegment.transform.position = targetTransform.position;
         newSegment.transform.localRotation = targetTransform.localRotation;
-        newSegment.transform.localScale = Vector3.zero;
 
         var segmentController = newSegment.GetComponent<SnakeSegmentController>();
         segmentController.SnakeController = this;
