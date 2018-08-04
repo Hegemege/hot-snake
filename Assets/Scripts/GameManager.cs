@@ -31,8 +31,7 @@ public class GameManager : MonoBehaviour
     public float HotnessRateMin;
     public float HotnessRateMax;
 
-    [HideInInspector]
-    public float HotnessLevel;
+    public float HotnessLevel; //-1f to 1f
 
     void Awake()
     {
@@ -59,7 +58,7 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel()
     {
-        HotnessLevel = 0.5f;
+        HotnessLevel = 0f;
     }
 
     /// <summary>
