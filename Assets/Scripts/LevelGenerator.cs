@@ -5,10 +5,11 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     [HideInInspector]
-    public List<GameObject> Trees;
+    public List<GameObject> Obstacles;
 
     public int TreeCount;
-    public float TreeSpawnProximityThreshold;
+    public int RockCount;
+    public float ObstacleProximityThreshold;
 
     public int InitialPickupCount;
 
@@ -17,6 +18,11 @@ public class LevelGenerator : MonoBehaviour
         for (var i = 0; i < TreeCount; i++)
         {
             SpawnTree();
+        }
+
+        for (var i = 0; i < RockCount; i++)
+        {
+            SpawnRock();
         }
 
         for (var i = 0; i < InitialPickupCount; i++)
@@ -29,6 +35,31 @@ public class LevelGenerator : MonoBehaviour
     {
         var tree = GameManager.Instance.TreePool.GetPooledObject();
 
+        var point = GetRandomObstacleSpawnPosition();
+        tree.transform.localPosition = point;
+
+        var normal = point.normalized;
+        var cross = Vector3.Cross(normal, Random.onUnitSphere);
+        tree.transform.localRotation = Quaternion.LookRotation(cross, normal);
+
+        Obstacles.Add(tree);
+    }
+
+    private void SpawnRock()
+    {
+        var rock = GameManager.Instance.RockPool.GetPooledObject();
+
+        var point = GetRandomObstacleSpawnPosition();
+        rock.transform.localPosition = point;
+
+        rock.transform.localRotation = Random.rotation;
+        rock.transform.localScale = Random.Range(0.5f, 1f) * Vector3.one;
+
+        Obstacles.Add(rock);
+    }
+
+    private Vector3 GetRandomObstacleSpawnPosition()
+    {
         // Pick random point, not close to current trees
         Vector3 point = Random.onUnitSphere * GameManager.Instance.SphereRadius;
         int tryCount = 0;
@@ -43,10 +74,10 @@ public class LevelGenerator : MonoBehaviour
             point = Random.onUnitSphere * GameManager.Instance.SphereRadius;
             var doContinue = false;
 
-            for (var i = 0; i < Trees.Count; i++)
+            for (var i = 0; i < Obstacles.Count; i++)
             {
-                var distance = Vector3.Distance(Trees[i].transform.position, point);
-                if (distance < TreeSpawnProximityThreshold)
+                var distance = Vector3.Distance(Obstacles[i].transform.position, point);
+                if (distance < ObstacleProximityThreshold)
                 {
                     doContinue = true;
                     break;
@@ -63,13 +94,7 @@ public class LevelGenerator : MonoBehaviour
             break;
         }
 
-        tree.transform.localPosition = point;
-
-        var normal = point.normalized;
-        var cross = Vector3.Cross(normal, Random.onUnitSphere);
-        tree.transform.localRotation = Quaternion.LookRotation(cross, normal);
-
-        Trees.Add(tree);
+        return point;
     }
 
     public void SpawnCollectible()
@@ -91,10 +116,10 @@ public class LevelGenerator : MonoBehaviour
             point = Random.onUnitSphere * GameManager.Instance.SphereRadius;
             var doContinue = false;
 
-            for (var i = 0; i < Trees.Count; i++)
+            for (var i = 0; i < Obstacles.Count; i++)
             {
-                var distance = Vector3.Distance(Trees[i].transform.position, point);
-                if (distance < TreeSpawnProximityThreshold / 2f)
+                var distance = Vector3.Distance(Obstacles[i].transform.position, point);
+                if (distance < ObstacleProximityThreshold / 2f)
                 {
                     doContinue = true;
                     break;
