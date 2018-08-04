@@ -28,6 +28,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject PlayerRef;
 
+    public float HotnessRateMin;
+    public float HotnessRateMax;
+
+    [HideInInspector]
+    public float HotnessLevel;
+
     void Awake()
     {
         // Setup singleton
@@ -49,6 +55,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void StartLevel()
+    {
+        HotnessLevel = 0.5f;
     }
 
     /// <summary>

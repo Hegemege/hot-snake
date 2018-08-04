@@ -447,6 +447,9 @@ MonoBehaviour:
   LevelGenerator: {fileID: 0}
   SphereRadius: 3
   PlayerRef: {fileID: 0}
+  HotnessRateMin: 1
+  HotnessRateMax: 2
+  HotnessLevel: 0
 --- !u!114 &114277672392038276
 MonoBehaviour:
   m_ObjectHideFlags: 1
