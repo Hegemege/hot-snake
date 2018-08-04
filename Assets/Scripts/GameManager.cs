@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
     public LayerMask GroundLayerMask;
     public List<GenericObjectPool> ColdCollectiblePools;
     public List<GenericObjectPool> HotCollectiblePools;
-    [HideInInspector]
     public LevelGenerator LevelGenerator;
 
     public float SphereRadius;
@@ -67,7 +66,6 @@ public class GameManager : MonoBehaviour
         // Initialize stuff
 
         // Get self-references
-        LevelGenerator = GetComponent<LevelGenerator>();
     }
 
     void Start()

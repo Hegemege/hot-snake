@@ -25,14 +25,35 @@ public class Eatable : MonoBehaviour
     private Vector3 _initialPosition;
     private Quaternion _initialRotation;
 
+    private float _disappearTimer;
+    public float DisappearTime;
+    private float _disappearTime;
+
+    private bool _spawning = true;
+
     void Awake()
     {
         _rotatorController = GetComponentInChildren<Rotator>();
+        RerollDisappearTime();
+        transform.localScale = Vector3.zero;
     }
 
     void Update()
     {
         var dt = Time.deltaTime;
+
+        if (_spawning)
+        {
+            if (transform.localScale.x < 1f)
+            {
+                transform.localScale += Vector3.one * dt;
+            }
+            else
+            {
+                transform.localScale = Vector3.one;
+                _spawning = false;
+            }
+        }
 
         if (_eaten)
         {
@@ -42,13 +63,7 @@ public class Eatable : MonoBehaviour
 
             if (t > 1f)
             {
-                gameObject.SetActive(false);
-                // Reset state variables
-                _eaten = false;
-                _eatTimer = 0f;
-                gameObject.tag = "Collectible";
-                transform.localScale = Vector3.one;
-                GameManager.Instance.LevelGenerator.SpawnCollectible();
+                RemoveFromPlay();
                 return;
             }
 
@@ -59,7 +74,43 @@ public class Eatable : MonoBehaviour
         {
             _initialPosition = transform.position;
             _initialRotation = transform.rotation;
+
+            _disappearTimer += dt;
+
+            if (_disappearTimer > _disappearTime - 1f)
+            {
+                if (transform.localScale.x > 0f)
+                {
+                    transform.localScale -= dt * Vector3.one * 1f;
+                }
+            }
+
+            if (_disappearTimer > _disappearTime)
+            {
+                RemoveFromPlay();
+                return;
+            }
         }
+    }
+
+    private void RemoveFromPlay()
+    {
+        gameObject.SetActive(false);
+        // Reset state variables
+        _eaten = false;
+        _eatTimer = 0f;
+        _disappearTimer = 0f;
+        gameObject.tag = "Collectible";
+        transform.localScale = Vector3.zero;
+        _spawning = true;
+        GameManager.Instance.LevelGenerator.SpawnCollectible();
+
+        RerollDisappearTime();
+    }
+
+    private void RerollDisappearTime()
+    {
+        _disappearTime = DisappearTime * Random.Range(1f, 2f);
     }
 
     public void Eat()

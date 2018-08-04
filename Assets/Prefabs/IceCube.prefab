@@ -331,6 +331,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  DisappearTime: 12
 --- !u!135 &135624833851442478
 SphereCollider:
   m_ObjectHideFlags: 1
