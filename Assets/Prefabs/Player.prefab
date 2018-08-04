@@ -651,6 +651,10 @@ MonoBehaviour:
   NextSegmentT: 0
   BlinkInterval: 4
   BlinkIntervalRandomness: 2
+  MR: {fileID: 137566417729523486}
+  ColdTexture: {fileID: 2800000, guid: 05959d756f2a57c4c9f5f6ca5230ba52, type: 3}
+  MediumTexture: {fileID: 2800000, guid: f445302aa55d906499f12ecf0fa78c3f, type: 3}
+  HotTexture: {fileID: 2800000, guid: 0cdee0dd197b8f840a8c261e5fe454c0, type: 3}
   GrowthAmount: 4
 --- !u!114 &114366133123161324
 MonoBehaviour:

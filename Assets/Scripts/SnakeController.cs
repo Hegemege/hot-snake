@@ -26,6 +26,12 @@ public class SnakeController : MonoBehaviour
     private float _hitTimer;
     private float _hitTimerMax = 1f;
 
+    public SkinnedMeshRenderer MR;
+    private bool _setHotTextures = true;
+    public Texture ColdTexture;
+    public Texture MediumTexture;
+    public Texture HotTexture;
+
     public int GrowthAmount;
 
     public int SegmentCount
@@ -71,6 +77,26 @@ public class SnakeController : MonoBehaviour
         {
             _animator.speed = 0f;
             return;
+        }
+
+        if (MR)
+        {
+            // Head coloring
+            if (GameManager.Instance.HotnessLevel < 0f && _setHotTextures)
+            {
+                _setHotTextures = !_setHotTextures;
+                MR.material.SetTexture("_MainTex2", ColdTexture);
+
+            }
+            else if (GameManager.Instance.HotnessLevel > 0f && !_setHotTextures)
+            {
+                _setHotTextures = !_setHotTextures;
+                MR.material.SetTexture("_MainTex2", HotTexture);
+            }
+
+            var blendT = Mathf.Abs(GameManager.Instance.HotnessLevel);
+            MR.material.SetFloat("_Blend", blendT);
+
         }
 
         var dt = Time.deltaTime;
