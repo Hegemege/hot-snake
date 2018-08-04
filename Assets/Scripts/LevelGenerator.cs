@@ -7,6 +7,8 @@ public class LevelGenerator : MonoBehaviour
     [HideInInspector]
     public List<GameObject> Obstacles;
 
+    public float CollectibleHeight;
+
     public int TreeCount;
     public int RockCount;
     public int StoneCount;
@@ -51,7 +53,7 @@ public class LevelGenerator : MonoBehaviour
 
         // Place it somewhere, not too close to trees or the player
         var point = GetRandomObstacleSpawnPosition(0.5f, 0.5f);
-        randomCollectible.transform.position = point;
+        randomCollectible.transform.position = point + point.normalized * CollectibleHeight;
 
         var normal = point.normalized;
         var cross = Vector3.Cross(normal, Random.onUnitSphere);
