@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     public float HotnessLevel; //-1f to 1f
     public int Score;
 
+    public Gradient SnakeSegmentColorGradient;
+
     public float SnakeLengthEffect;
 
     void Awake()

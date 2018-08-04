@@ -5,6 +5,7 @@ using UnityEngine;
 public class SnakeController : MonoBehaviour
 {
     public int InitialSegmentCount;
+    public int MaxSegmentCount;
     public float DistanceBetweenSegments;
 
     private LinkedList<SnakeSegmentController> _segments;
@@ -102,6 +103,8 @@ public class SnakeController : MonoBehaviour
 
     public void AddNewTailSegment()
     {
+        if (SegmentCount > MaxSegmentCount) return;
+
         var targetTransform = transform;
         if (_segments.Count > 0)
         {

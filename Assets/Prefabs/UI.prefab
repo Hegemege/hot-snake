@@ -309,7 +309,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HotnessMarker: {fileID: 114588604231023788}
   HotnessText: {fileID: 114488714792910296}
+  HotHotImage: {fileID: 114689712732466406}
+  NotHotImage: {fileID: 114207482628111556}
+  ShakingMin: 0
+  ShakingMax: 15
+  ShakingThreshold: 0.6
+  NearDeathThreshold: 0.8
   HotnessNumberSmoothing: 4
+  NearDeathFlashInterval: 0.15
+  FlashHotColor: {r: 1, g: 0.5452947, b: 0, a: 1}
+  FlashColdColor: {r: 0, g: 0.6262355, b: 1, a: 1}
 --- !u!114 &114488714792910296
 MonoBehaviour:
   m_ObjectHideFlags: 1

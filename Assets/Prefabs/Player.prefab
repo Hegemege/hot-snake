@@ -645,6 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialSegmentCount: 10
+  MaxSegmentCount: 100
   DistanceBetweenSegments: 0.2
   NextSegmentT: 0
   BlinkInterval: 4
