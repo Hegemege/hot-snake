@@ -25,6 +25,9 @@ public class SnakeSegmentController : MonoBehaviour
     [HideInInspector]
     public bool Alive;
 
+    public Gradient ColorGradient;
+    public MeshRenderer MR;
+
     void Awake()
     {
         ModelRoot.transform.localScale = Vector3.zero;
@@ -44,6 +47,9 @@ public class SnakeSegmentController : MonoBehaviour
         {
             _collider.enabled = true;
         }
+
+        var colorT = (GameManager.Instance.HotnessLevel + 1f) * 0.5f;
+        MR.material.color = ColorGradient.Evaluate(colorT);
 
         // Update the scale of the tail segment based on location in tail
         var totalSegments = SnakeController.SegmentCount;
