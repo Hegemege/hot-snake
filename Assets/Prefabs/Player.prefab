@@ -649,6 +649,7 @@ MonoBehaviour:
   NextSegmentT: 0
   BlinkInterval: 4
   BlinkIntervalRandomness: 2
+  GrowthAmount: 4
 --- !u!114 &114864173930375196
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -660,9 +661,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276cfe30daa4e5748be1847fb10cd571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 1.5
+  SpeedBoostModifier: 0.5
+  LengthSpeedEffect: 0.5
   DistanceFromGround: 0.01
-  TurningSensitivity: 90
+  TurningSensitivity: 100
+  LengthTurningEffect: 30
   CameraAnchor: {fileID: 1246094070152018}
   CameraFollowController: {fileID: 114997165200746048}
 --- !u!114 &114997165200746048

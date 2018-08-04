@@ -21,6 +21,8 @@ public class SnakeController : MonoBehaviour
     private float _blinkTimer;
     private float _blinkTarget;
 
+    public int GrowthAmount;
+
     public int SegmentCount
     {
         get
@@ -111,7 +113,7 @@ public class SnakeController : MonoBehaviour
         newSegment.transform.parent = _segmentContainer.transform;
         newSegment.transform.position = targetTransform.position;
         newSegment.transform.localRotation = targetTransform.localRotation;
-        newSegment.transform.localScale = Vector3.one;
+        newSegment.transform.localScale = Vector3.zero;
 
         var segmentController = newSegment.GetComponent<SnakeSegmentController>();
         segmentController.SnakeController = this;
@@ -123,12 +125,32 @@ public class SnakeController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Collectible"))
         {
-            AddNewTailSegment();
+            Grow();
 
             var otherEatable = other.GetComponent<Eatable>();
             otherEatable.Eat();
 
+            if (otherEatable.EatableType == EatableType.Hot && GameManager.Instance.HotnessLevel > 0f)
+            {
+                Grow();
+            }
+
+            if (otherEatable.EatableType == EatableType.Cold && GameManager.Instance.HotnessLevel < 0f)
+            {
+                Grow();
+            }
+
+            GameManager.Instance.ObjectEaten(otherEatable);
+
             _animator.SetTrigger("Eat");
+        }
+    }
+
+    private void Grow()
+    {
+        for (var i = 0; i < GrowthAmount; i++)
+        {
+            AddNewTailSegment();
         }
     }
 }

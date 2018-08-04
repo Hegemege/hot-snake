@@ -271,6 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EatableType: 1
+  HotnessChangePercentage: 10
+  ScoreAmount: 100
   EatAnimationLength: 1
   EatScaleCurve:
     serializedVersion: 2
@@ -278,20 +280,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 0.8162587
+      outSlope: 0.8162587
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.098445594
+    - serializedVersion: 3
+      time: 0.12317285
+      value: 1.0749002
+      inSlope: -2.2420418
+      outSlope: -2.2420418
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1101836
+      outWeight: 0.065237604
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.42267525
+      outSlope: -0.42267525
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.13462609
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2

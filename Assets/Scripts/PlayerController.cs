@@ -5,14 +5,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float Speed;
+    public float SpeedBoostModifier;
+    public float LengthSpeedEffect;
     public float DistanceFromGround;
     public float TurningSensitivity;
+    public float LengthTurningEffect;
 
     public GameObject CameraAnchor;
     public CameraFollowController CameraFollowController;
 
     private float _hitTimer;
     private float _hitTimerMax = 1f;
+
+    private float _initialSpeed;
+    private float _initialTurningRate;
 
     void Awake()
     {
@@ -23,6 +29,9 @@ public class PlayerController : MonoBehaviour
         // Snap to ground + offset
         SnapToGround();
         SnapRotation();
+
+        _initialSpeed = Speed;
+        _initialTurningRate = TurningSensitivity;
     }
 
     void Update()
@@ -31,6 +40,9 @@ public class PlayerController : MonoBehaviour
         {
             _hitTimer -= Time.deltaTime;
         }
+
+        Speed = _initialSpeed + SpeedBoostModifier * Mathf.Clamp(GameManager.Instance.HotnessLevel, -1f, 1f) + LengthSpeedEffect * GameManager.Instance.SnakeLengthEffect;
+        TurningSensitivity = _initialTurningRate + LengthTurningEffect * GameManager.Instance.SnakeLengthEffect;
     }
 
     void FixedUpdate()

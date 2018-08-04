@@ -468,19 +468,24 @@ MonoBehaviour:
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 512
-  CollectiblePools:
-  - {fileID: 114474511458888026}
-  - {fileID: 114308508471438212}
+  ColdCollectiblePools:
   - {fileID: 114936913594112192}
   - {fileID: 114687718038654798}
+  - {fileID: 114308508471438212}
+  HotCollectiblePools:
+  - {fileID: 114474511458888026}
   - {fileID: 114618186145175608}
   - {fileID: 114277672392038276}
   LevelGenerator: {fileID: 0}
   SphereRadius: 3
   PlayerRef: {fileID: 0}
-  HotnessRateMin: 1
-  HotnessRateMax: 2
+  HotnessRateMin: 0.0025
+  HotnessRateMax: 0.01
+  SnakeLengthOptimum: 50
+  SnakeLengthNonOptimalDiff: 30
   HotnessLevel: 0
+  Score: 0
+  SnakeLengthEffect: 0
 --- !u!114 &114277672392038276
 MonoBehaviour:
   m_ObjectHideFlags: 1

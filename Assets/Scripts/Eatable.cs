@@ -12,6 +12,8 @@ public enum EatableType
 public class Eatable : MonoBehaviour
 {
     public EatableType EatableType;
+    public int HotnessChangePercentage;
+    public int ScoreAmount;
     public float EatAnimationLength;
     public AnimationCurve EatScaleCurve;
     public AnimationCurve EatYCurve;

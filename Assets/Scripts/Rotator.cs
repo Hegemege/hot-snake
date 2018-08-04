@@ -13,7 +13,7 @@ public class Rotator : MonoBehaviour
 
     void Awake()
     {
-        _initialRotationSpeed = RotationSpeed;
+        _initialRotationSpeed = RotationSpeed * Random.Range(0.8f, 1.2f);
     }
 
     void FixedUpdate()

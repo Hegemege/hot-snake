@@ -48,7 +48,10 @@ public class LevelGenerator : MonoBehaviour
 
     public void SpawnCollectible()
     {
-        var randomCollectiblePool = GameManager.Instance.CollectiblePools[Random.Range(0, GameManager.Instance.CollectiblePools.Count)];
+        var coldBias = Mathf.Clamp(GameManager.Instance.HotnessLevel, -1f, 1f);
+        var coldBias01 = 0.5f + (0.2f * coldBias);
+        var pools = Random.Range(0f, 1f) > coldBias01 ? GameManager.Instance.HotCollectiblePools : GameManager.Instance.ColdCollectiblePools;
+        var randomCollectiblePool = pools[Random.Range(0, pools.Count)];
         var randomCollectible = randomCollectiblePool.GetPooledObject();
 
         // Place it somewhere, not too close to trees or the player
