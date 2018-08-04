@@ -15,6 +15,12 @@ public class SnakeController : MonoBehaviour
     [HideInInspector]
     public float NextSegmentT;
 
+    private Animator _animator;
+    public float BlinkInterval;
+    public float BlinkIntervalRandomness;
+    private float _blinkTimer;
+    private float _blinkTarget;
+
     public int SegmentCount
     {
         get
@@ -26,18 +32,38 @@ public class SnakeController : MonoBehaviour
     void Awake()
     {
         _segments = new LinkedList<SnakeSegmentController>();
-
         _segmentContainer = new GameObject("Segment Container");
 
         for (var i = 0; i < InitialSegmentCount; i++)
         {
             AddNewTailSegment();
         }
+
+        _animator = GetComponentInChildren<Animator>();
+        ResetBlinkTimer();
     }
 
     void Start()
     {
         _lastSegmentLocation = transform.position;
+    }
+
+    void Update()
+    {
+        var dt = Time.deltaTime;
+
+        _blinkTimer += dt;
+        if (_blinkTimer > _blinkTarget)
+        {
+            ResetBlinkTimer();
+            _animator.SetTrigger("Blink");
+        }
+    }
+
+    private void ResetBlinkTimer()
+    {
+        _blinkTimer = 0f;
+        _blinkTarget = BlinkInterval + Random.Range(-BlinkIntervalRandomness, BlinkIntervalRandomness);
     }
 
     void FixedUpdate()
@@ -101,6 +127,8 @@ public class SnakeController : MonoBehaviour
 
             var otherEatable = other.GetComponent<Eatable>();
             otherEatable.Eat();
+
+            _animator.SetTrigger("Eat");
         }
     }
 }

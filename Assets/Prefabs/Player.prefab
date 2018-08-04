@@ -647,6 +647,8 @@ MonoBehaviour:
   InitialSegmentCount: 10
   DistanceBetweenSegments: 0.2
   NextSegmentT: 0
+  BlinkInterval: 4
+  BlinkIntervalRandomness: 2
 --- !u!114 &114864173930375196
 MonoBehaviour:
   m_ObjectHideFlags: 1
