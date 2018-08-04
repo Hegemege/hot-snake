@@ -84,7 +84,7 @@ GameObject:
   - component: {fileID: 4854470722308586}
   - component: {fileID: 114277672392038276}
   m_Layer: 0
-  m_Name: StovePool
+  m_Name: MeteoritePool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,6 +165,22 @@ GameObject:
   - component: {fileID: 4231021575170254}
   m_Layer: 0
   m_Name: Pools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1660994697625590
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4164868048876092}
+  - component: {fileID: 114618186145175608}
+  m_Layer: 0
+  m_Name: StovePool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,6 +275,19 @@ Transform:
   m_Father: {fileID: 4231021575170254}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4164868048876092
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660994697625590}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4231021575170254}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4201970497353532
 Transform:
   m_ObjectHideFlags: 1
@@ -304,6 +333,7 @@ Transform:
   - {fileID: 4262661488977926}
   - {fileID: 4299786247430764}
   - {fileID: 4224898120402082}
+  - {fileID: 4164868048876092}
   - {fileID: 4854470722308586}
   m_Father: {fileID: 4049881524539594}
   m_RootOrder: 0
@@ -397,7 +427,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4231021575170254}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114026664751670026
 MonoBehaviour:
@@ -443,6 +473,7 @@ MonoBehaviour:
   - {fileID: 114308508471438212}
   - {fileID: 114936913594112192}
   - {fileID: 114687718038654798}
+  - {fileID: 114618186145175608}
   - {fileID: 114277672392038276}
   LevelGenerator: {fileID: 0}
   SphereRadius: 3
@@ -461,7 +492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PooledObjectPrefab: {fileID: 1326149384890644, guid: 8cdf485eb11d7524faee577417df057d,
+  PooledObjectPrefab: {fileID: 1840710556251558, guid: cb2434d69e7549b4f92022b679638c37,
     type: 2}
   WillGrow: 1
   Pool: []
@@ -542,6 +573,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PooledObjectPrefab: {fileID: 1455647854901186, guid: 84fc25d787e7707449c794abe242eb3e,
+    type: 2}
+  WillGrow: 1
+  Pool: []
+  Container: {fileID: 1082359904275770}
+--- !u!114 &114618186145175608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1660994697625590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276f18a0c1f454d4587324a1874b4ab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjectPrefab: {fileID: 1326149384890644, guid: 8cdf485eb11d7524faee577417df057d,
     type: 2}
   WillGrow: 1
   Pool: []

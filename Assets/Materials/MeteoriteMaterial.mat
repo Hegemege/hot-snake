@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: MushroomTexture
+  m_Name: MeteoriteMaterial
   m_Shader: {fileID: 4800000, guid: bc229c8b60401254ba14ae750df78bf2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -39,7 +39,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bb4a2840940350f4789b5b02742dcef2, type: 3}
+        m_Texture: {fileID: 2800000, guid: c31f5b0aa51dc47428bffe05a7385c94, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
