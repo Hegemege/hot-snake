@@ -215,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ModelRoot: {fileID: 1616421992782004}
   CameraAnchor: {fileID: 1317064725910172}
+  ScaleOnDeath: 1
 --- !u!114 &114560673909034310
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GenericObjectPool StonePool;
     public GenericObjectPool MushroomPool;
     public ParticleSystemPool EatPopcornPSPool;
+    public ParticleSystemPool SnowFlakePSPool;
+    public ParticleSystemPool SmokePSPool;
     public LayerMask GroundLayerMask;
     public List<GenericObjectPool> ColdCollectiblePools;
     public List<GenericObjectPool> HotCollectiblePools;

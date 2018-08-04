@@ -74,6 +74,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1341179415318778
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4436800330454018}
+  - component: {fileID: 114440233429681616}
+  m_Layer: 0
+  m_Name: SnowFlakePSPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1427218327279540
 GameObject:
   m_ObjectHideFlags: 1
@@ -218,6 +234,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1862122090217732
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4371065598581126}
+  - component: {fileID: 114297412479007990}
+  m_Layer: 0
+  m_Name: EatPopcornPSPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1878799134659668
 GameObject:
   m_ObjectHideFlags: 1
@@ -228,7 +260,7 @@ GameObject:
   - component: {fileID: 4077163671957154}
   - component: {fileID: 114006602258157948}
   m_Layer: 0
-  m_Name: EatPopcornPSPool
+  m_Name: SmokePSPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -284,12 +316,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1878799134659668}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4231021575170254}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4146077163967094
 Transform:
@@ -364,6 +396,8 @@ Transform:
   - {fileID: 4224898120402082}
   - {fileID: 4164868048876092}
   - {fileID: 4854470722308586}
+  - {fileID: 4371065598581126}
+  - {fileID: 4436800330454018}
   - {fileID: 4077163671957154}
   m_Father: {fileID: 4049881524539594}
   m_RootOrder: 0
@@ -406,6 +440,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4231021575170254}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4371065598581126
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1862122090217732}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4231021575170254}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4436800330454018
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341179415318778}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4231021575170254}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4572465726858334
 Transform:
@@ -470,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e140d4c2983d7e04297b120952ca48f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PooledObjectPrefab: {fileID: 1091887402630680, guid: 363a8ec7fef55194caf73c18b3a43b9d,
+  PooledObjectPrefab: {fileID: 1281990919173670, guid: 7083225eea017874f98bcf062a6f8d62,
     type: 2}
   WillGrow: 1
   Pool: []
@@ -511,7 +571,9 @@ MonoBehaviour:
   RockPool: {fileID: 114466063230386738}
   StonePool: {fileID: 114483415017884500}
   MushroomPool: {fileID: 114557961446379970}
-  EatPopcornPSPool: {fileID: 114006602258157948}
+  EatPopcornPSPool: {fileID: 114297412479007990}
+  SnowFlakePSPool: {fileID: 114440233429681616}
+  SmokePSPool: {fileID: 114006602258157948}
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -581,6 +643,22 @@ MonoBehaviour:
   WillGrow: 1
   Pool: []
   Container: {fileID: 1082359904275770}
+--- !u!114 &114297412479007990
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1862122090217732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e140d4c2983d7e04297b120952ca48f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjectPrefab: {fileID: 1091887402630680, guid: 363a8ec7fef55194caf73c18b3a43b9d,
+    type: 2}
+  WillGrow: 1
+  Pool: []
+  Container: {fileID: 1082359904275770}
 --- !u!114 &114308508471438212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -593,6 +671,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PooledObjectPrefab: {fileID: 1726995426568390, guid: 8c5d217903da71a47a5af10431071e68,
+    type: 2}
+  WillGrow: 1
+  Pool: []
+  Container: {fileID: 1082359904275770}
+--- !u!114 &114440233429681616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1341179415318778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e140d4c2983d7e04297b120952ca48f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PooledObjectPrefab: {fileID: 1742339920433962, guid: 690437e0d7c526b40b40366c5ba702c7,
     type: 2}
   WillGrow: 1
   Pool: []
