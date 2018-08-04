@@ -41,11 +41,15 @@ public class UIController : MonoBehaviour
             _hotnessTextCache.Add(i, i + "%");
         }
 
+        _currentHotnessLevel = GameManager.Instance.HotnessLevel;
+        _initialTextColor = HotnessText.color;
+    }
+
+    void Start()
+    {
         _initialMarkerPosition = HotnessMarker.rectTransform.localPosition;
         _initialHotHotPosition = HotHotImage.rectTransform.localPosition;
         _initialNotHotPosition = NotHotImage.rectTransform.localPosition;
-        _currentHotnessLevel = GameManager.Instance.HotnessLevel;
-        _initialTextColor = HotnessText.color;
     }
 
     void Update()
