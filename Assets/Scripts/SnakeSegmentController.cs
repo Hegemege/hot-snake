@@ -18,14 +18,32 @@ public class SnakeSegmentController : MonoBehaviour
     private Vector3 _targetScale;
     public float ShrinkingSpeed;
 
+    private SphereCollider _collider;
+
+    private float _spawnTimer = 3f;
+
+    [HideInInspector]
+    public bool Alive;
+
     void Awake()
     {
         ModelRoot.transform.localScale = Vector3.zero;
+        Alive = true;
+        _collider = GetComponent<SphereCollider>();
     }
 
     void Update()
     {
         var dt = Time.deltaTime;
+
+        if (_spawnTimer > 0)
+        {
+            _spawnTimer -= dt;
+        }
+        else
+        {
+            _collider.enabled = true;
+        }
 
         // Update the scale of the tail segment based on location in tail
         var totalSegments = SnakeController.SegmentCount;
@@ -42,6 +60,8 @@ public class SnakeSegmentController : MonoBehaviour
         }
         else
         {
+            _targetScale = Vector3.one;
+            ModelRoot.transform.localScale = Vector3.one;
             return;
         }
 
@@ -53,5 +73,23 @@ public class SnakeSegmentController : MonoBehaviour
             ModelRoot.transform.localScale = Vector3.one * targetScale;
         }
 
+        if (!Alive && ModelRoot.transform.localScale.magnitude < 0.01f)
+        {
+            gameObject.SetActive(false);
+            Alive = true;
+            ModelRoot.transform.localScale = Vector3.zero;
+        }
+    }
+
+    public void ResetCollider()
+    {
+        _collider.enabled = false;
+        _spawnTimer = 2f;
+    }
+
+    public void KillSegment()
+    {
+        Alive = false;
+        _targetScale = Vector3.zero;
     }
 }

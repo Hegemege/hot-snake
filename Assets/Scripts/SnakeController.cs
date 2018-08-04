@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class SnakeController : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class SnakeController : MonoBehaviour
     public float BlinkIntervalRandomness;
     private float _blinkTimer;
     private float _blinkTarget;
+
+    private float _hitTimer;
+    private float _hitTimerMax = 1f;
 
     public int GrowthAmount;
 
@@ -77,6 +81,11 @@ public class SnakeController : MonoBehaviour
             ResetBlinkTimer();
             _animator.SetTrigger("Blink");
         }
+
+        if (_hitTimer > 0)
+        {
+            _hitTimer -= dt;
+        }
     }
 
     private void ResetBlinkTimer()
@@ -95,6 +104,7 @@ public class SnakeController : MonoBehaviour
 
         if (distanceToNext > DistanceBetweenSegments)
         {
+            tail.Value.ResetCollider();
             _segments.RemoveLast();
             _segments.AddFirst(tail);
 
@@ -133,6 +143,8 @@ public class SnakeController : MonoBehaviour
         newSegment.transform.position = targetTransform.position;
         newSegment.transform.localRotation = targetTransform.localRotation;
 
+        newSegment.SetActive(true);
+
         var segmentController = newSegment.GetComponent<SnakeSegmentController>();
         segmentController.SnakeController = this;
 
@@ -161,6 +173,38 @@ public class SnakeController : MonoBehaviour
             GameManager.Instance.ObjectEaten(otherEatable);
 
             _animator.SetTrigger("Eat");
+        }
+        else if (other.gameObject.CompareTag("SnakeSegment"))
+        {
+            if (!other.enabled) return;
+            if (_hitTimer > 0) return;
+
+            // Cut the snake in half, kill the tail
+            // Take the segment and all after it and kill them all
+            var segmentController = other.GetComponent<SnakeSegmentController>();
+            if (!segmentController.Alive) return;
+
+            var node = _segments.First;
+            for (var i = 0; i < segmentController.Index; i++)
+            {
+                if (node.Next == null) break;
+                node = node.Next;
+            }
+
+            while (node != null)
+            {
+                node.Value.KillSegment();
+                if (node.Next == null)
+                {
+                    _segments.Remove(node);
+                    break;
+                }
+
+                node = node.Next;
+                _segments.Remove(node.Previous);
+            }
+
+            _hitTimer = _hitTimerMax;
         }
     }
 
