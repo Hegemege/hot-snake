@@ -144,7 +144,7 @@ public class LevelGenerator : MonoBehaviour
                 }
             }
 
-            if (Vector3.Distance(GameManager.Instance.PlayerRef.transform.position, point) < PlayerProximityThreshold * playerProximityScale)
+            if (GameManager.Instance.PlayerRef && Vector3.Distance(GameManager.Instance.PlayerRef.transform.position, point) < PlayerProximityThreshold * playerProximityScale)
             {
                 doContinue = true;
             }
