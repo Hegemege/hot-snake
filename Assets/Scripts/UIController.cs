@@ -34,6 +34,6 @@ public class UIController : MonoBehaviour
         hotnessLevel = Mathf.Clamp(hotnessLevel, -100, 100);
         HotnessText.text = _hotnessTextCache[hotnessLevel];
 
-        HotnessMarker.rectTransform.localPosition = _initialMarkerPosition + new Vector3(0f, Mathf.Clamp(_currentHotnessLevel, -1f, 1f) * (1080f - 120f) / 2f, 0f);
+        HotnessMarker.rectTransform.localPosition = _initialMarkerPosition + new Vector3(0f, Mathf.Clamp(_currentHotnessLevel, -1f, 1f) * (1080f - 350f) / 2f, 0f);
     }
 }
