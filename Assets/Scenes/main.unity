@@ -312,11 +312,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114084880544720870, guid: ec8c30d66ee8a5d4b855feb7802afa02,
-        type: 2}
-      propertyPath: InitialSegmentCount
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec8c30d66ee8a5d4b855feb7802afa02, type: 2}
   m_IsPrefabAsset: 0

@@ -173,6 +173,11 @@ public class SnakeController : MonoBehaviour
             GameManager.Instance.ObjectEaten(otherEatable);
 
             _animator.SetTrigger("Eat");
+
+            var eatPS = GameManager.Instance.EatPopcornPSPool.GetPooledObject();
+            eatPS.transform.parent = transform;
+            eatPS.transform.localRotation = Quaternion.identity;
+            eatPS.transform.localPosition = Vector3.forward * 0.35f;
         }
         else if (other.gameObject.CompareTag("SnakeSegment"))
         {

@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087c9d1ce4ae60d41b9683fa47b0a92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialSegmentCount: 10
+  InitialSegmentCount: 30
   MaxSegmentCount: 200
   DistanceBetweenSegments: 0.2
   NextSegmentT: 0
