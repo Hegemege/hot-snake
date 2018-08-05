@@ -196,6 +196,18 @@ public class SnakeController : MonoBehaviour
                 Grow();
             }
 
+            // Audio effect
+            if (otherEatable.EatableType == EatableType.Hot)
+            {
+                var sfx = GameManager.Instance.AudioEffectManager.HotEatPool.GetPooledObject();
+                sfx.SetActive(true);
+            }
+            else
+            {
+                var sfx = GameManager.Instance.AudioEffectManager.ColdEatPool.GetPooledObject();
+                sfx.SetActive(true);
+            }
+
             GameManager.Instance.ObjectEaten(otherEatable);
 
             _animator.SetTrigger("Eat");

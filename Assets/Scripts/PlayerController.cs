@@ -108,6 +108,9 @@ public class PlayerController : MonoBehaviour
             // Can't hit an obstacle immediately after
             if (_hitTimer > 0) return;
 
+            var sfx = GameManager.Instance.AudioEffectManager.CollidePool.GetPooledObject();
+            sfx.SetActive(true);
+
             // Take damage, flash snake, turn 90 degrees away
             // Figure out which side the tree is on
             var towardsTree = (other.transform.position - transform.position).normalized;

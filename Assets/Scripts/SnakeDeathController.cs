@@ -20,6 +20,10 @@ public class SnakeDeathController : MonoBehaviour
 
         particles.transform.position = transform.position;
         particles.transform.rotation = transform.rotation;
+
+        var pool = GameManager.Instance.HotnessLevel < 0 ? GameManager.Instance.AudioEffectManager.ColdDeathPool : GameManager.Instance.AudioEffectManager.HotDeathPool;
+        var sfx = pool.GetPooledObject();
+        sfx.SetActive(true);
     }
 
     void Update()

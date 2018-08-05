@@ -34,6 +34,10 @@ public class ScoreUIController : MonoBehaviour
     {
         if (_clicked) return;
         _clicked = true;
+
+        var sfx = GameManager.Instance.AudioEffectManager.MenuClickPool.GetPooledObject();
+        sfx.SetActive(true);
+
         SceneManager.LoadScene("menu");
     }
 }
