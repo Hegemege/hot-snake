@@ -55,6 +55,9 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool DeathWasHot;
 
+    [HideInInspector]
+    public AudioEffectManager AudioEffectManager;
+
     void Awake()
     {
         // Setup singleton
@@ -70,6 +73,7 @@ public class GameManager : MonoBehaviour
         // Initialize stuff
 
         // Get self-references
+        AudioEffectManager = GetComponent<AudioEffectManager>();
     }
 
     void Start()

@@ -19,6 +19,10 @@ public class MenuUIController : MonoBehaviour
     {
         if (_clicked) return;
         _clicked = true;
+
+        var sfx = GameManager.Instance.AudioEffectManager.MenuClickPool.GetPooledObject();
+        sfx.SetActive(true);
+
         GameManager.Instance.InactivatePooledObjects();
         GameManager.Instance.gameObject.GetComponent<Rotator>().enabled = false;
         GameManager.Instance.transform.rotation = Quaternion.identity;
@@ -27,11 +31,15 @@ public class MenuUIController : MonoBehaviour
 
     public void CreditsPressed()
     {
+        var sfx = GameManager.Instance.AudioEffectManager.MenuClickPool.GetPooledObject();
+        sfx.SetActive(true);
         CreditsImage.gameObject.SetActive(true);
     }
 
     public void CreditsBackPressed()
     {
+        var sfx = GameManager.Instance.AudioEffectManager.MenuClickPool.GetPooledObject();
+        sfx.SetActive(true);
         CreditsImage.gameObject.SetActive(false);
     }
 }
