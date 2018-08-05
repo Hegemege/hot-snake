@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
     public bool Alive;
 
     public float DeathAnimationInterval;
+    [HideInInspector]
+    public bool DeathWasHot;
 
     void Awake()
     {
@@ -117,6 +119,7 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel()
     {
+        DeathWasHot = HotnessLevel > 0f;
         StartLevel();
         GameManager.Instance.InactivatePooledObjects();
         SceneManager.LoadScene("score");
