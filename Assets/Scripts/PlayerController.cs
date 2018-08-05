@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         _initialTurningRate = TurningSensitivity;
 
         GameManager.Instance.PlayerRef = gameObject;
+        GameManager.Instance.Score = 0;
     }
 
     void Update()

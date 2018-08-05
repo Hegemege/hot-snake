@@ -18,6 +18,11 @@ public class LevelGenerator : MonoBehaviour
 
     public int InitialPickupCount;
 
+    void Awake()
+    {
+        GameManager.Instance.LevelGenerator = this;
+    }
+
     void Start()
     {
         for (var i = 0; i < TreeCount; i++)
@@ -68,6 +73,7 @@ public class LevelGenerator : MonoBehaviour
     private void SpawnTree()
     {
         var tree = GameManager.Instance.TreePool.GetPooledObject();
+        tree.SetActive(true);
 
         var point = GetRandomObstacleSpawnPosition(1f, 1f);
         tree.transform.localPosition = point;
@@ -82,6 +88,7 @@ public class LevelGenerator : MonoBehaviour
     private void SpawnRock()
     {
         var rock = GameManager.Instance.RockPool.GetPooledObject();
+        rock.SetActive(true);
 
         var point = GetRandomObstacleSpawnPosition(0.5f, 1f);
         rock.transform.localPosition = point;
@@ -95,6 +102,7 @@ public class LevelGenerator : MonoBehaviour
     private void SpawnStone()
     {
         var stone = GameManager.Instance.StonePool.GetPooledObject();
+        stone.SetActive(true);
 
         var point = GetRandomObstacleSpawnPosition(0.3f, 0f);
         stone.transform.localPosition = point;
@@ -108,6 +116,7 @@ public class LevelGenerator : MonoBehaviour
     private void SpawnMushroom()
     {
         var mushroom = GameManager.Instance.MushroomPool.GetPooledObject();
+        mushroom.SetActive(true);
 
         var point = GetRandomObstacleSpawnPosition(0.3f, 0f);
         mushroom.transform.localPosition = point;

@@ -26,7 +26,9 @@ public class GameManager : MonoBehaviour
     public LayerMask GroundLayerMask;
     public List<GenericObjectPool> ColdCollectiblePools;
     public List<GenericObjectPool> HotCollectiblePools;
+    [HideInInspector]
     public LevelGenerator LevelGenerator;
+    public GameObject PoolContainer;
 
     public float SphereRadius;
 
@@ -116,8 +118,17 @@ public class GameManager : MonoBehaviour
     public void EndLevel()
     {
         StartLevel();
-        SceneManager.LoadScene("main");
-        GetPlayerRef();
+        GameManager.Instance.InactivatePooledObjects();
+        SceneManager.LoadScene("score");
+        //GetPlayerRef();
+    }
+
+    public void InactivatePooledObjects()
+    {
+        foreach (Transform child in PoolContainer.transform)
+        {
+            child.gameObject.SetActive(false);
+        }
     }
 
     private void Death()

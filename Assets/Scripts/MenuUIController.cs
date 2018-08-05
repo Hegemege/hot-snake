@@ -10,10 +10,18 @@ public class MenuUIController : MonoBehaviour
 
     private bool _clicked;
 
+    void Awake()
+    {
+        GameManager.Instance.gameObject.GetComponent<Rotator>().enabled = true;
+    }
+
     public void PlayPressed()
     {
         if (_clicked) return;
         _clicked = true;
+        GameManager.Instance.InactivatePooledObjects();
+        GameManager.Instance.gameObject.GetComponent<Rotator>().enabled = false;
+        GameManager.Instance.transform.rotation = Quaternion.identity;
         SceneManager.LoadScene("main");
     }
 

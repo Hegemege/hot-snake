@@ -101,7 +101,7 @@ public class Eatable : MonoBehaviour
         _eatTimer = 0f;
         _disappearTimer = 0f;
         gameObject.tag = "Collectible";
-        transform.localScale = Vector3.zero;
+        transform.localScale = Vector3.one * 0.01f;
         _spawning = true;
         GameManager.Instance.LevelGenerator.SpawnCollectible();
 
